@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import PerProduct from '../../components/PerProduct';
+import Head from 'next/head';
 
 const Products = ({products}) => {
   return (
     <>
+    <Head>
+    <title>E-commerce Products</title>
+    </Head>
       <div className="row">
         {
           products.map(e => {

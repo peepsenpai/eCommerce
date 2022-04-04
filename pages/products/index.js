@@ -25,7 +25,18 @@ const Products = ({products}) => {
 
 export default Products;
 
-export async function getStaticProps(){
+// export async function getStaticProps(){
+//     const res = await axios.get(`${baseUrl}/test`);
+//     // console.log(res.data);
+//     // console.log(res.data);
+//     return {
+//       props: {
+//         products: res.data
+//       }
+//     }
+// }
+
+export async function getServerSideProps(){
     const res = await axios.get(`${baseUrl}/test`);
     // console.log(res.data);
     // console.log(res.data);

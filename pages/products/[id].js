@@ -65,7 +65,7 @@ export default product;
 
 // calling api on page load 
 
-export async function getStaticProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id } }) {
     const res = await axios.get(`${baseUrl}/perProduct/${id}`);
     return {
         props: {
@@ -75,11 +75,11 @@ export async function getStaticProps({ params: { id } }) {
 };
 
 // it will run first 
-export async function getStaticPaths() {
-    return {
-        paths: [
-            { params: { id: '' } }
-        ],
-        fallback: true // false or 'blocking'
-    };
-};
+// export async function getStaticPaths() {
+//     return {
+//         paths: [
+//             { params: { id: '' } }
+//         ],
+//         fallback: true // false or 'blocking'
+//     };
+// };

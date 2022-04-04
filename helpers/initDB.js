@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 
 const initDB = ()=>{
+    // if we connected already than no need to connect again 
     if(mongoose.connections[0].readyState){
         console.log('already connected');
         return

@@ -5,7 +5,7 @@ import baseUrl from '../../helpers/baseUrl';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css'
 
-const product = ({ product }) => {
+const Product = ({ product }) => {
     const [ismodal, setIsModal] = useState(false)
     // console.log(product);
     const router = useRouter();
@@ -60,7 +60,7 @@ const product = ({ product }) => {
     )
 }
 
-export default product;
+export default Product;
 
 
 // calling api on page load 

@@ -24,7 +24,7 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <Link href="/">
+          <Link href="/" passHref={true}>
             <a className="navbar-brand" href="#">E-commerce</a>
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,17 +34,17 @@ const Navbar = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {
                 NavItem.map((e, i) => {
-                  return <Link key={i} href={e.path}>
-                    <li className="nav-item">
+                  return <li className="nav-item" key={i}>
+                    <Link href={e.path} passHref={true}>
                       <a className={`nav-link ${router.pathname == e.path ? 'active' : null}`} style={{ cursor: 'pointer' }}>{e.name}</a>
-                    </li>
-                  </Link>
+                    </Link>
+                  </li>
                 })
               }
             </ul>
             <div className={`d-flex ${styles.column_gap}`}>
               <button className="btn btn-primary">
-                <Link href="/Create">
+                <Link href="/Create" passHref={true}>
                   <a>Create</a>
                 </Link>
               </button>

@@ -1,11 +1,14 @@
 import Layout from '../components/Layout'
-import '../styles/globals.css'
+import '../styles/globals.css';
+import ContextWrapper from '../context/ContextWrapper';
 
 function MyApp({ Component, pageProps }) {
   return <>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ContextWrapper>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ContextWrapper>
   </>
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PerProduct from '../../components/PerProduct';
 import Head from 'next/head';
+import baseUrl from '../../helpers/baseUrl';
 
 const Products = ({products}) => {
   return (
@@ -18,7 +19,6 @@ const Products = ({products}) => {
           })
         }
       </div>
-
     </>
   )
 }
@@ -26,9 +26,9 @@ const Products = ({products}) => {
 export default Products;
 
 export async function getStaticProps(){
-    const res = await axios.get('http://localhost:3000/api/test');
+    const res = await axios.get(`${baseUrl}/test`);
     // console.log(res.data);
-    console.log(res.data);
+    // console.log(res.data);
     return {
       props: {
         products: res.data

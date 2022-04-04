@@ -5,6 +5,9 @@ const nextConfig = {
     domains: [
       "images.unsplash.com"
     ]
+  },
+  devIndicators: {
+    buildActivity: false
   }
 }
 

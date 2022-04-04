@@ -1,6 +1,7 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import React from 'react'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React from 'react';
+import styles from '../styles/Home.module.css'
 
 const Navbar = () => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const Navbar = () => {
       path: '/Signup',
       name: 'Sign Up'
     },
-    
+
   ]
   return (
     <>
@@ -31,19 +32,24 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-             {
-               NavItem.map((e,i)=>{
-                 return <Link key={i} href={e.path}>
-                   <li className="nav-item">
-                      <a className={`nav-link ${router.pathname == e.path ? 'active':null}`} style={{cursor: 'pointer'}}>{e.name}</a>
-                   </li>
-                 </Link>
-               })
-             }
+              {
+                NavItem.map((e, i) => {
+                  return <Link key={i} href={e.path}>
+                    <li className="nav-item">
+                      <a className={`nav-link ${router.pathname == e.path ? 'active' : null}`} style={{ cursor: 'pointer' }}>{e.name}</a>
+                    </li>
+                  </Link>
+                })
+              }
             </ul>
-            <div className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Search</button>
+            <div className={`d-flex ${styles.column_gap}`}>
+              <button className="btn btn-primary">
+                <Link href="/Create">
+                  <a>Create</a>
+                </Link>
+              </button>
+              {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button className="btn btn-outline-success" type="submit">Search</button> */}
             </div>
           </div>
         </div>

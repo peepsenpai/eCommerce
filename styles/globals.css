@@ -7,11 +7,11 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 a:hover{
-  color: rgb(167, 212, 5);
+  color: rgb(167, 212, 5) !important;
 }
 
 * {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 
 const Navbar = () => {
   const router = useRouter();
@@ -17,6 +17,10 @@ const Navbar = () => {
     {
       path: '/Signup',
       name: 'Sign Up'
+    },
+    {
+      path: '/account',
+      name: 'Account'
     },
 
   ]

@@ -2,8 +2,13 @@ import Head from 'next/head'
 import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
+import baseUrl from '../helpers/baseUrl'
+import axios from 'axios';
+import cookie from 'js-cookie';
+import { useRouter } from 'next/router';
 
 const Login = () => {
+  const router = useRouter()
   const [LoginDetails, setLoginDetails] = useState({
     email: '',
     pw: ''
@@ -17,8 +22,18 @@ const Login = () => {
     })
   };
 
-  const LoginClicked = () => {
-
+  const LoginClicked = async() => {
+    try{
+      const data = await axios.post(`${baseUrl}/login`,LoginDetails);
+      console.log(data);
+      if(data.status === 201){
+        cookie.set('token',data.data.token);
+        console.log('hii');
+        router.push('/account')
+      }
+    }catch(err){
+      console.log(err);
+    }
   }
   return (
     <>
@@ -39,7 +54,7 @@ const Login = () => {
         <button className="btn btn-primary" onClick={LoginClicked}>Sign Up</button>
         <div className="my-3">
           <Link href="/Signup" passHref={true}>
-            <a>Don't have an account ? Go To Sihn up</a>
+            <a>Don't have an account ? Sign up now</a>
           </Link>
         </div>
       </main>

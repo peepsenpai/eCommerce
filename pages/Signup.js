@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import axios from 'axios';
+import baseUrl from '../helpers/baseUrl'
+import { useRouter } from 'next/router';
 
 const Signup = () => {
+  const router = useRouter()
   const [signUpDetails, setSignUpDetails] = useState({
     name: '',
     email: '',
@@ -18,7 +22,11 @@ const Signup = () => {
   };
 
   const signUpClicked = () => {
-
+    const signUpData = axios.post(`${baseUrl}/signup`, signUpDetails);
+    // console.log(signUpData);
+    if(signUpData.status === 201){
+      router.push('/Login');
+    }
   }
   return (
     <>
@@ -52,4 +60,4 @@ const Signup = () => {
   )
 };
 
-export default Signup
+export default Signup;

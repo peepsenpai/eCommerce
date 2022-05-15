@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import baseUrl from '../../helpers/baseUrl';
 import Image from 'next/image';
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Home.module.css';
+import Head from 'next/head';
 
 const Product = ({ product }) => {
     const [ismodal, setIsModal] = useState(false)
@@ -23,6 +24,13 @@ const Product = ({ product }) => {
     }
     return (
         <>
+        <Head>
+            <title>
+                {
+                    `E-commerce product - ${product.name}`
+                }
+            </title>
+        </Head>
             <div className="container">
                 <div className="mb-3">
                     <Image src={product.mediaUrl} alt="img" width="300" height="300" />
